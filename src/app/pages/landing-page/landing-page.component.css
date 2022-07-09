@@ -4,7 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-  padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
   font-family: 'Montserrat', sans-serif;
@@ -32,7 +31,7 @@ img {
  }
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 36rem;
+  height: 39rem;
 }
 
 
@@ -115,13 +114,4 @@ footer.container
   .featurette-heading {
     margin-top: 7rem;
   }
-}
-.navbar-nav.navbar-center {
-  position: absolute;
-  left: 50%;
-  transform: translatex(-50%);
-}
-.navbar-nav > li{
-  padding-left:20px;
-  padding-right:20px;
 }
