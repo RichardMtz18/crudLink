@@ -12,4 +12,9 @@ export class CrudComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isShown: boolean = true;
+
+toggleShow(){
+  this.isShown= ! this.isShown;
+}
 }
