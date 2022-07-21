@@ -11,19 +11,19 @@ export class UsuariosService {
 
   constructor(private readonly http: HttpClient) {}
 
-    // getUsuarios(){
-    //   this.http.get(`${this.url}`);
-    // }
+    //  getUsuarios(){
+    //    this.http.get(`${this.url}`);
+    //  }
 
-    // postUsuarios(){
-    //   this.http.post(`${this.url}`, );
-    // }
+    //  postUsuarios(){
+    //    this.http.post(`${this.url}`, );
+    //  }
 
-    // putUsuarios(){
-    //   this.http.put(`${this.url}`, );
-    // }
+    //  putUsuarios(){
+    //    this.http.put(`${this.url}`, );
+    //  }
 
-    // deleteUsuarios(){
-    //   this.http.delete(`${this.url}`);
+    //  deleteUsuarios(){
+    //    this.http.delete(`${this.url}`);
     // }
 }

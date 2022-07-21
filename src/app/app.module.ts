@@ -7,6 +7,7 @@ import { CrudComponent } from './pages/crud/crud.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { RegistrarUsuarioComponent } from './pages/crud/registrar-usuario/registrar-usuario.component';
 import { ActualizarUsuarioComponent } from './pages/crud/actualizar-usuario/actualizar-usuario.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ActualizarUsuarioComponent } from './pages/crud/actualizar-usuario/actu
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

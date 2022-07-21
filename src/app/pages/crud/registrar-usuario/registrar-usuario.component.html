@@ -1,11 +1,15 @@
 <div class="card mt-5">
   <div class="card-header">Registrar Usuario</div>
   <div class="card-body">
-    <form class="row g-3">
+    <form (ngSubmit)="registrarUsuario(forma)" #forma="ngForm" class="row g-3">
       <div class="col-md-6">
         <label for="strNombre" class="form-label">Nombre</label>
         <input
+          #inputStrNombre="ngModel"
           type="text"
+          name="strNombre"
+          [ngClass]="{'is-invalid': inputStrNombre.touched && inputStrNombre.hasError('required')}"
+          [(ngModel)]="usuario.strNombre"
           class="form-control"
           id="strNombre"
           value="Ricardo"
@@ -16,7 +20,11 @@
       <div class="col-md-6">
         <label for="strPrimerApellido" class="form-label">Primer Apellido</label>
         <input
+          #inputStrPrimerApellido="ngModel"
           type="text"
+          name="strPrimerApellido"
+          [ngClass]="{'is-invalid': inputStrPrimerApellido.touched && inputStrPrimerApellido.hasError('required')}"
+          [(ngModel)]="usuario.strPrimerApellido"
           class="form-control"
           id="strPrimerApellido"
           value="Martínez"
@@ -28,6 +36,8 @@
         <label for="strSegundoApellido" class="form-label">Segundo Apellido</label>
         <input
           type="text"
+          name="strSegundoApellido"
+          [(ngModel)]="usuario.strSegundoApellido"
           class="form-control"
           id="strSegundoApellido"
           value="Campos"
@@ -37,7 +47,13 @@
       <div class="col-md-4">
         <label for="nmbEdad" class="form-label">Edad</label>
         <input
+          #inputNmbEdad="ngModel"
           type="number"
+          name="nmbEdad"
+          min="0"
+          max="99"
+          [ngClass]="{'is-invalid': inputNmbEdad.touched && inputNmbEdad.hasError('required')}"
+          [(ngModel)]="usuario.nmbEdad"
           class="form-control"
           id="nmbEdad"
           value="20"
@@ -128,8 +144,9 @@
         </div>
       </div> -->
       <div class="col-12 text-center">
-        <button class="btn btn-success" type="submit">Registrar</button>
-      </div> 
+        <button class="btn btn-success" type="submit" [disabled]="forma.invalid">Registrar</button>
+        <button style="margin-left: 20px;" class="btn btn-danger" type="button" (click)="limpiarForma(forma)">Limpiar</button>
+      </div>
     </form>
   </div>
 </div>
