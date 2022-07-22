@@ -1,29 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { lastValueFrom } from 'rxjs';
+import { environment } from '../../environments/environment.prod';
+import { UsuarioModel } from '../models/Usuario.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
-  url: any;
+  url: string = `${environment.baseUrl}/usuario`;
+  matricula: string = environment.matricula;
 
   constructor(private readonly http: HttpClient) {}
 
-    //  getUsuarios(){
-    //    this.http.get(`${this.url}`);
-    //  }
+     getUsuarios(){
+       this.http.get(`${this.url}`);
+     }
 
-    //  postUsuarios(){
-    //    this.http.post(`${this.url}`, );
-    //  }
+     postUsuario(usuario: UsuarioModel){
+       return lastValueFrom(this.http.post(`${this.url}`, usuario, {params: {matricula: this.matricula}}));
+     }
 
-    //  putUsuarios(){
-    //    this.http.put(`${this.url}`, );
-    //  }
+     putUsuarios(){
+       
+     }
 
-    //  deleteUsuarios(){
-    //    this.http.delete(`${this.url}`);
-    // }
+     deleteUsuarios(){
+       
+    }
 }

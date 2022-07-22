@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioModel } from 'src/app/models/Usuario.model';
 import Swal from 'sweetalert2';
+import { UsuariosService } from '../../../services/usuarios.service';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -11,21 +12,28 @@ import Swal from 'sweetalert2';
 export class RegistrarUsuarioComponent implements OnInit {
 
   usuario: UsuarioModel = new UsuarioModel();
-  constructor() { }
+  constructor(private readonly UsuariosService: UsuariosService) { }
 
   ngOnInit(): void {
   }
 
   registrarUsuario(forma: NgForm)
   {
-    console.log('Se registro correctamente');
-    console.log(this.usuario);
-    // forma.reset();
-    console.log(forma.invalid);
-    Swal.fire
-    ({
-      icon: "success",
-      text: "Se registró el usuario exitosamente"
+    this.UsuariosService.postUsuario(this.usuario)
+    .then((response: any) => {
+      Swal.fire
+      ({
+        icon: "success",
+        text: "Se registró el usuario exitosamente"
+      });
+      forma.reset();
+    })
+    .catch((error: any) => {
+      Swal.fire
+      ({
+        icon: "error",
+        text: "Ha habido un error al registrar el usuario"
+      });
     });
   }
 
