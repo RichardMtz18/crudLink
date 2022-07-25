@@ -15,7 +15,7 @@ export class UsuariosService {
   constructor(private readonly http: HttpClient) {}
 
      getUsuarios(){
-       this.http.get(`${this.url}`);
+       return lastValueFrom(this.http.get(`${this.url}`, {params: {matricula: this.matricula}}));
      }
 
      postUsuario(usuario: UsuarioModel){
