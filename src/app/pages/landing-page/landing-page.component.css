@@ -31,7 +31,7 @@ img {
  }
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 34rem;
+  height: 36rem;
 }
 
 

@@ -18,6 +18,10 @@ export class UsuariosService {
        return lastValueFrom(this.http.get(`${this.url}`, {params: {matricula: this.matricula}}));
      }
 
+     getUsuario(idUsuario: string){
+      return lastValueFrom(this.http.get(`${this.url}/${idUsuario}`, {params: {matricula: this.matricula}}));
+     }
+
      postUsuario(usuario: UsuarioModel){
        return lastValueFrom(this.http.post(`${this.url}`, usuario, {params: {matricula: this.matricula}}));
      }

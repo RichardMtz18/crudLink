@@ -1,18 +1,29 @@
+<body>
+  <!-- <br>
+  <h1 class="text-white">CRUD</h1> -->
+  <br>
+  <br>
+  <div class="spinner" style="margin: 0 auto;">
+    <span>C</span>
+    <span>R</span>
+    <span>U</span>
+    <span>D</span>
+  </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-6" *ngIf="isShown" id="divshow">
+        <div class="col-6" *ngIf="!isShown" id="divshow">
             <app-registrar-usuario></app-registrar-usuario>
         </div>
-        <div class="col-6" *ngIf="!isShown" id="divshow">
-            <app-actualizar-usuario></app-actualizar-usuario>
+        <div class="col-6" *ngIf="isShown" id="divshow">
+            <app-actualizar-usuario [idUsuario]="idUsuario"></app-actualizar-usuario>
         </div>
         <div class="col-6">
             <div class="card mt-5">
-                <div class="card-header">Tablas Usuarios
-                  <button (click)="toggleShow()" type="button" class="btn btn-outline-success btn-sm" style="float: right;">Actualizar</button>
+                <div class="card-header text-white">Tablas Usuarios
+                  <!-- <button (click)="toggleShow()" type="button" class="b3" style="float: right;">Actualizar</button> -->
                 </div>
                 <div class="card-body">
-                  <table class="table">
+                  <table class="table text-white">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
@@ -22,12 +33,12 @@
                         <th scope="col">Eliminar</th>
                       </tr>
                     </thead>
-                    <tbody class="table-group-divider">
+                    <tbody class="table-group-divider text-white">
                       <tr *ngFor="let usuario of usuarios; let i = index">
                         <th scope="row">{{i+1}}</th>
                         <td>{{usuario.strNombre}} {{usuario.strPrimerApellido}} {{usuario.strSegundoApellido}}</td>
                         <td>{{usuario.nmbEdad}}</td>
-                        <td><button class="b1" type="button"><i class="bi bi-pencil-square"></i></button></td>
+                        <td><button (click)="toggleShow(usuario._id)" class="b1" type="button"><i class="bi bi-pencil-square"></i></button></td>
                         <td><button class="b2" type="button"><i class="bi bi-trash3-fill"></i></button></td>
                       </tr>
                     </tbody>
@@ -37,3 +48,4 @@
         </div>
     </div>
 </div>
+</body>

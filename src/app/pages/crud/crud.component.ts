@@ -11,6 +11,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 export class CrudComponent implements OnInit {
 
   usuarios: UsuarioModel[] = [];
+  idUsuario: string = "";
 
   constructor(private UsuariosService: UsuariosService) { }
 
@@ -33,9 +34,10 @@ export class CrudComponent implements OnInit {
     return new Array(i)
   }
 
-  isShown: boolean = true;
+  isShown: boolean = false;
 
-toggleShow(){
-  this.isShown= ! this.isShown;
+toggleShow(idUsuario: any){
+  this.idUsuario = idUsuario;
+  this.isShown= true;
 }
 }
