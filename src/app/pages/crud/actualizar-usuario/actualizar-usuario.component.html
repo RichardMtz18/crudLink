@@ -147,6 +147,7 @@
       <div class="col-12 text-center">
         <button class="b4" type="submit" [disabled]="forma.invalid">Actualizar</button>
         <button style="margin-left: 20px;" class="b5" type="button" (click)="limpiarForma(forma)">Limpiar</button>
+        <button style="margin-left: 20px;" class="b5" type="button" (click)="emitirActualizacion.emit()">Cancelar</button>
       </div>
     </form>
   </div>

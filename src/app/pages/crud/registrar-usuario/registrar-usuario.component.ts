@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioModel } from 'src/app/models/Usuario.model';
 import Swal from 'sweetalert2';
@@ -12,6 +12,7 @@ import { UsuariosService } from '../../../services/usuarios.service';
 export class RegistrarUsuarioComponent implements OnInit {
 
   usuario: UsuarioModel = new UsuarioModel();
+  @Output() emitirRegistro: EventEmitter<any> = new EventEmitter();
   constructor(private readonly UsuariosService: UsuariosService) { }
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class RegistrarUsuarioComponent implements OnInit {
         text: "Se registró el usuario exitosamente"
       });
       forma.reset();
+      this.emitirRegistro.emit();
     })
     .catch((error: any) => {
       Swal.fire
